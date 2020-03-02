@@ -1,0 +1,452 @@
+
+.main {
+  /* background-color: #F0EFF4; */
+  /* background-image: url("https://raw.githubusercontent.com/sjs5953/keep-calm-and-travel-on/master/frontend/src/assets/img/bg7.jpg"); */
+
+  background-image: url("https://github.com/sjs5953/keep-calm-and-travel-on/blob/master/frontend/src/assets/img/silhouette-of-airplane-during-evening-935884.jpg?raw=true");
+  
+/* https://images.pexels.com/photos/613826/pexels-photo-613826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 */
+  /* https://images.pexels.com/photos/286758/pexels-photo-286758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 */
+  background-color: #202020;
+
+  /* https://github.com/sjs5953/keep-calm-and-travel-on/blob/master/frontend/src/assets/img/beach-birds-calm-clouds-219998.jpg?raw=true */
+  /* background-image: url("https://images.pexels.com/photos/163185/old-retro-antique-vintage-163185.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"); */
+  /* background-image: url("https://github.com/sjs5953/keep-calm-and-travel-on/blob/master/frontend/src/assets/img/bokeh-hd-wallpaper-54278.jpg?raw=true"); */
+ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+  margin:0;
+  /* font-family: 'Permanent Marker' ; */
+/* font-family: 'Knewave'; */
+}
+
+.header {
+  background-color: #ebdfe0;
+}
+
+.dnd-context {
+  position:fixed;
+  right:2vw;
+  width:78vw;
+  display: flex;
+  height: 100%; 
+  flex-direction: column
+}
+
+.days-container {
+  /* background: linear-gradient(to left, #70adf2, #ff9472); */
+  /* border-top-left-radius: 15px; */
+  /* background-color: #a0a0a0 ; */
+  background:transparent;
+  color:white;
+  height: 48vh;
+  position:fixed;
+  right:2vw;
+  top:14vh;
+  display: flex;
+  flex-direction: row;
+  width: 78vw;
+  max-width: 78vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+/* width */
+.days-container::-webkit-scrollbar {
+  display:none;
+  width: 10px;
+  height:20px;
+ 
+}
+/* Track */
+.days-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius:5px;
+}
+/* Handle */
+.days-container::-webkit-scrollbar-thumb {
+  /* background: rgba(136, 136, 136,0.5); */
+  border-radius:5px;
+}
+/* Handle on hover */
+.days-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 101, 101, 1);
+  width:10px;
+}
+
+.column-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right:3vw;
+}
+
+.column-name {
+  margin:12px;
+  margin-left:0;
+  font-weight: bold;
+}
+
+.delete-list {
+  background-color: rgb(225, 0,0,0.5);
+  border: 0;
+}
+
+.column-container {
+  display: flex;
+  flex-Direction: column;
+  align-Items: center;
+}
+.column-container h2 {
+  font-family: 'Permanent Marker';
+  /* font-family: 'Knewave' ; */
+  margin:0;
+}
+
+.outside-column {
+  margin-right:4vw;
+  padding:5px, 0;
+}
+
+.inside-column{
+  /* border-radius:15px; */
+  padding: 0px;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  width: 35vw;
+  font-size:20px;
+}
+
+.inside-column::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.days-container .inside-column{
+  border-radius:10px;
+  height:39vh;
+  max-height: 40vh;
+  width:37vw;
+  padding:0
+}
+
+.activity-list .inside-column{
+  /* background: linear-gradient(to left, #70adf2, #ff9472); */
+  /* border-radius:10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius:10px;
+  position:fixed;
+  bottom:0;
+  left:20vw;
+  height: 34vh;
+  margin-bottom:0;
+  width:37vw;
+  padding:0
+}
+
+.card {
+  border-radius:5px;
+  padding: 30px;
+  /* padding-left:10px; */
+  margin: 0;
+  min-width: 250px;
+  height:13vh;
+  color: white;
+  text-align: center;
+}
+.drag .material-icons{
+  margin-left:5px;
+  margin-right:15px;
+  font-size:30px;
+}
+.item-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:100%;
+}
+.item-name {
+  text-align: center;
+  line-height: 200%;
+  max-height:100%;
+  width:10vw;
+  margin:0 40px;
+  font-size: 20px;
+  padding:0px 10px;
+  border-radius:8px;
+  /* background: linear-gradient(to left, #5f9fee, #7d9de4); */
+  background: linear-gradient(to left, #f2709c, #f77c5e);
+  /* background: linear-gradient(to left, #ec9523, #a75900); */
+  /* background: linear-gradient(to left, #1a36a3, #d6cfe2); */
+
+}
+
+
+.item-time {
+  text-align:center;
+  margin:0;
+  margin-right:15px;
+  font-size:22px;
+
+}
+
+.item-price {
+  /* position: absolute;;
+  right:60px; */
+  font-size:23px;
+}
+
+.item-delete {
+  margin-left:2px;
+  width:25px;
+  height:25px;
+  padding:0;
+  text-align: center;
+}
+
+.item-delete  i {
+  font-size:20px;
+  width: 25px;
+  text-align: center;
+  font-weight: bold;
+  padding-right:3px;
+  padding-top:1.1px;
+  margin-left:.5px;
+}
+
+.delete-list  {
+  height:26px;
+  width: 40px;
+  text-align: center;
+  line-height: 10px;
+  padding:0
+}
+
+.delete-list .material-icons {
+  font-size:21px;
+}
+
+.item-photo {
+  border-radius: 5px;
+  height: 8vh;
+  width: 10vh;
+}
+
+
+.item-price {
+  padding:2px 10px;
+  border-radius:8px;
+  /* background: linear-gradient(to left, #f2709c, #ff9472); */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.progress {
+  background-color: rgba(240, 239, 239,0.2);
+  border-radius: 10px;
+  position: fixed;
+  margin: 0;
+  top:6vh;
+  right: 2vw;
+  height: 7vh;
+  width:78vw;
+}
+
+.negative .progress-done {
+  background: linear-gradient(to left, #f2709c, #ff9472);
+  box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+  font-size:4.5vh;
+}
+
+.positive .progress-done {
+  background: linear-gradient(to left, #70adf2, #72d7ff);
+  box-shadow: 0 3px 3px -5px #70adf2, 0 2px 5px #72d7ff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+  font-size:4.5vh;
+}
+
+.g-map {
+  position: fixed;
+  right:2vw;
+  bottom:0;
+  width: 37vw;
+  height: 34vh;
+  border-radius:25px;
+}
+
+.form-section {
+  /* background-color:#5F1A37 ; */
+  /* background-image: url("https://www.biztrip.co.uk/wp-content/uploads/2017/05/Business-Travel-Header-Image.jpg");
+  background-size: cover; */
+  background: transparent;
+ 
+
+  padding:30px;
+  padding-top:90px;
+ 
+  color:white;
+
+  height: 100vh;
+  width: 20vw;
+  position: fixed;
+  bottom:0;
+  left:0;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.budget-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:20vw;
+}
+
+.input-budget {
+  width:8vw;
+  height: 4vh;
+  margin-bottom: 13px;
+}
+
+.budget-button {
+  background-color: #3f51b5;
+  width:8vw;
+  height:4vh;
+  display: block;
+  margin: auto;
+  margin-top:20px;
+}
+
+.nav-header{
+  /* background-color: black !important; */
+  /* background-image: url("https://www.biztrip.co.uk/wp-content/uploads/2017/05/Business-Travel-Header-Image.jpg") !important;
+  background-size: cover; */
+  padding:0 !important;
+  margin: auto;
+  background: transparent !important;
+  color:white !important;
+  background-color: #476C9B !important;
+  border-radius:0 !important;
+}
+
+.modal {
+  height: 30vh;
+  width: 50vw;
+}
+
+.length-error {
+  color:red;
+  font-size:12px;
+}
+
+.plus-minus {
+  display: flex;
+  justify-content: space-evenly;
+  width:42%;
+}
+
+/* .savetrip-friendslist-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:5vh;
+} */
+
+.friends-container {
+  margin-top:50px;
+  height:15vh;
+  width:20vw;
+}
+
+.friends-list {
+  position: absolute;
+  bottom:0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  width:20vw;
+  height:30vh;
+  border-radius:12px;
+  padding-top:0;
+}
+
+.friend-name {
+  margin:10px;
+  font-size:18px;
+}
+
+.navi {
+  display: flex;
+  /* justify-content: center; */
+  position:fixed;
+  z-index: 100;
+  right:27vw;
+  bottom: 35vh;
+  width:20vw;
+}
+.navi .material-icons{
+  font-size: 35px !important;
+ 
+  
+}
+.slider {
+  border-radius: 10px;
+  /* background-color:rgba(237, 237, 237, 0.5); */
+  width:60%;
+  display: flex;
+  justify-content: space-between;
+  height:35px;
+}
+.add-list {
+  position: fixed;
+  bottom:35vh;
+  right: 25vw
+}
+
+.list-name {
+  position:fixed;
+  bottom:34.5vh;
+  left:31vw;
+  color:white;
+  font-weight: bold;
+}

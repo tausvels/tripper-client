@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import getFriendsActivities from '../helpers/getFriendsActivities';
-// import { useTheme } from "@material-ui/core";
+
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+}
 
 const FriendsList = props => {
 

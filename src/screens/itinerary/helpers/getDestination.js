@@ -1,9 +1,9 @@
 import axios from 'axios';
-
-        
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+}      
 
 export default function getDestination (arg) {
-  console.log("herrrro")
   return axios.get(`/trips/edit/${arg}`)
     .then(res=> {
 

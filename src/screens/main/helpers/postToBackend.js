@@ -1,5 +1,8 @@
 import axios from 'axios';
 import uuid from "uuid/v4";
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+}
 
 export default function postToBackEnd (tripName, tripId, userId, columns, total, budget) {
   const columnCopy = { ...columns };

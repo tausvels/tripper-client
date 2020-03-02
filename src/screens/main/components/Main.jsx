@@ -15,6 +15,9 @@ import addCardList from '../helpers/addCardList'
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+}
 
 function Main(props) {
 

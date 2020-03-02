@@ -238,14 +238,7 @@ function Main(props) {
 
       </nav>
   
-        <GMap 
-          initialCenter={activities} 
-          activities={selectedActivity} 
-          columns={columns}
-          hoverActivity={hoverActivity}
-          latestActivity={latestActivity}
-          friendActivities={friendsActivities}
-        />
+        
   
         <FormSection 
           user={props.user} 

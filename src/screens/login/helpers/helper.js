@@ -13,7 +13,7 @@ const cookieSetter = function (email, password) {
   return axios(req)
 };
 
-const attemptLogin = (event, email, password, setError, setUser) => {
+export function attemptLogin (event, email, password, setError, setUser) {
   event.preventDefault();
   cookieSetter(email, password)
     .then((res) => {
@@ -26,4 +26,6 @@ const attemptLogin = (event, email, password, setError, setUser) => {
     .catch(e => console.error(e))
 }
 
-export default attemptLogin;
+export function attemptSignUp ()  {
+  console.log('attempting to sign-up')
+}

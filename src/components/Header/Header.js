@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
 
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -10,29 +10,29 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import axios from 'axios';
+import axios from "axios";
 
-import saveToLocal from  '../../screens/main/helpers/saveToLocal'
+import saveToLocal from "../../screens/main/helpers/saveToLocal";
 // core components
 import styles from "../../assets/jss/material-kit-react/components/headerStyle";
 //assets/jss/material-kit-react/components/headerStyle.js
 
 const useStyles = makeStyles(styles);
 export default function Header(props) {
-
   const history = useHistory();
   const classes = useStyles();
 
   const logout = () => {
-    axios.get("/logout")
-    .then(res => {
-      props.setUser(null);
-      if (props.tripName) {
-        history.push("/")
-      }
-    })
-    .catch(e => console.error(e))
-  }
+    axios
+      .get("/logout")
+      .then(res => {
+        props.setUser(null);
+        if (props.tripName) {
+          history.push("/");
+        }
+      })
+      .catch(e => console.error(e));
+  };
 
   const user = props.user;
 
@@ -44,26 +44,57 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   // const brandComponent = <Button className={classes.title}>{brand}</Button>;
-  return(
-    
+  return (
     <AppBar className={`nav-header ${appBarClasses}`}>
-      <div className= {classes.flex}>
-        <Button className={classes.title} component= { Link } to="/">{brand}</Button>
+      <div className={classes.flex}>
+        <Button className={classes.title} component={Link} to="/">
+          {brand}
+        </Button>
       </div>
-        {(user)?
+      {user ? (
         <div>
-          <Button className={classes.title} onClick={()=>{history.push(`/trips/${user.name}`)}}>{user.name}</Button>
-          <Button className={classes.title} onClick={logout}>LOG OUT</Button> 
+          <Button
+            className={classes.title}
+            onClick={() => {
+              history.push(`/trips/${user.name}`);
+            }}
+          >
+            {user.name}
+          </Button>
+          <Button className={classes.title} onClick={logout}>
+            LOG OUT
+          </Button>
         </div>
-          :  
-        <Button className={classes.title} onClick={()=>{
-          if(props.columns) {
-            saveToLocal(props.columns, props.budget)
-          }
-          
-          }} component= { Link } to="/login">LOGIN</Button>}
+      ) : (
+        <div>
+            <Button
+            className={classes.title}
+            onClick={() => {
+              if (props.columns) {
+                saveToLocal(props.columns, props.budget);
+              }
+            }}
+            component={Link}
+            to="/signup"
+          >
+            SIGN UP
+          </Button>
+          <Button
+            className={classes.title}
+            onClick={() => {
+              if (props.columns) {
+                saveToLocal(props.columns, props.budget);
+              }
+            }}
+            component={Link}
+            to="/login"
+          >
+            LOGIN
+          </Button>
+        </div>
+      )}
     </AppBar>
-  )
+  );
 }
 
 Header.defaultProp = {

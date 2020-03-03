@@ -8,7 +8,7 @@ import Icon from "@material-ui/core/Icon";
 
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-
+import Person from '@material-ui/icons/Person'
 // core components
 import Header from "../../../components/Header/Header";
 import GridContainer from "../../../components/Grid/GridContainer";
@@ -24,12 +24,14 @@ import styles from "../../../assets/jss/material-kit-react/views/loginPage.js";
 import image from "../../../assets/img/temple-trees.jpg";
 
 // --------- HELPER FUNCTION --------------------------- //
-import {attemptLogin} from "../helpers/helper";
+import {attemptSignUp} from "../helpers/helper";
 
-const Login = props => {
+const SignUp = props => {
   
   // --------- DECLARING STATE --------------------------- //
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [error, setError] = useState("");
@@ -67,7 +69,7 @@ const Login = props => {
                 <form
                   className={classes.form}
                   onSubmit={event => {
-                    attemptLogin(
+                    attemptSignUp(
                       event,
                       userEmail,
                       userPassword,
@@ -79,12 +81,46 @@ const Login = props => {
                   {props.user ? history.goBack() : null}
 
                   <CardHeader color="info" className={classes.cardHeader}>
-                    <h4>Login</h4>
+                    <h4>SIGN UP</h4>
                   </CardHeader>
 
                   <CardBody>
                     <p className="length-error">{error}</p>
 
+                    <CustomInput
+                      labelText="First Name"
+                      id="first_name"
+                      formControlProps={{ fullWidth: true }}
+                      inputProps={{
+                        type: "text",
+                        value: userFirstName,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Person className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        ),
+                        onChange: e => {
+                          setUserFirstName(e.target.value);
+                        }
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Last Name"
+                      id="last_name"
+                      formControlProps={{ fullWidth: true }}
+                      inputProps={{
+                        type: "text",
+                        value: userLastName,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Person className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        ),
+                        onChange: e => {
+                          setUserLastName(e.target.value);
+                        }
+                      }}
+                    />
                     <CustomInput
                       labelText="Email"
                       id="email"
@@ -129,7 +165,7 @@ const Login = props => {
 
                   <CardFooter className={classes.cardFooter}>
                     <Button type="submit" simple color="info" size="lg">
-                      Sign In
+                      Sign Up
                     </Button>
                   </CardFooter>
                 </form>
@@ -141,4 +177,4 @@ const Login = props => {
     </div>
   );
 };
-export default Login;
+export default SignUp;

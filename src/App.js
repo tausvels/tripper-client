@@ -11,6 +11,7 @@ import Home from './screens/home/components/Home'
 import Main from './screens/main/components/Main'
 import Trips from './screens/trips/components/Trips'
 import Login from './screens/login/components/Login'
+import SignUp from './screens/login/components/signup'
 import Itinerary from './screens/itinerary/components/Itinerary'
 
 
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/itinerary/:itineraryId/:country/:city" render={(routeProps) => <Itinerary {...routeProps} user={user} setUser={setUser} />} />
           <Route path="/trips/:userName" render={(routeProps) => <Trips {...routeProps} user={user} setUser={setUser} />} />
           <Route path="/login" render={(routeProps) => <Login {...routeProps} user={user} setUser={setUser} />} />
+          <Route path="/signup" render={(routeProps) => <SignUp {...routeProps} user={user} setUser={setUser} />} />
           <Route path="/" render={(routeProps) => <Home {...routeProps} user={user} setUser={setUser} background={background} setBackGround={setBackGround} />} />
         </Switch>
     </Router>

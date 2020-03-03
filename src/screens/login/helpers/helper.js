@@ -26,6 +26,23 @@ export function attemptLogin (event, email, password, setError, setUser) {
     .catch(e => console.error(e))
 }
 
-export function attemptSignUp ()  {
-  console.log('attempting to sign-up')
+export function attemptSignUp (event, first_name, last_name, email, password, setError, setUser)  {
+  event.preventDefault();
+  // console.log(`attempting to sign-up with ${first_name}, ${last_name}, email: ${email} and password: ${password}`)
+  const userInput = {first_name, last_name, email, password}
+  const req = {
+    url: "/users/signup",
+    method: "POST",
+    data: userInput
+  }
+  axios(req)
+    .then(res => { 
+      if (res.data) {
+        console.log(res.data)
+        setUser({name: res.data.userInfoBackFromDb.first_name, id: res.data.userInfoBackFromDb.id})
+      } else {
+        setError("User exist already")
+      }
+     })
+    .catch (e => console.error(e))
 }

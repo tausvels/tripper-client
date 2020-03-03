@@ -71,6 +71,8 @@ const SignUp = props => {
                   onSubmit={event => {
                     attemptSignUp(
                       event,
+                      userFirstName,
+                      userLastName,
                       userEmail,
                       userPassword,
                       setError,

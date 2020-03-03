@@ -4,9 +4,31 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
+  DirectionsRenderer, 
   InfoWindow
 } from "react-google-maps";
 require("dotenv").config();
+
+// Helpers
+//--------- === NEED MODIFICATION AND API KEY UPGRADE -------------------------- //
+const onChangeHandler = (directionService, directionsDisplay, activity) => {
+  calcAndDsiplayRoute(directionService, directionsDisplay, activity)
+}
+const calcAndDsiplayRoute = (directionService, directionsDisplay, activity) => {
+  directionService.route({
+    origin: new window.google.maps.LatLng(-8.63113460, 115.19047540),
+    destination: new window.google.maps.LatLng(-8.66958900, 115.25662500),
+    travelMode: 'DRIVING'
+  }, (response, status)=> {
+    if (status === 'OK') {
+      console.log(response)
+      directionsDisplay.setDirections(response)
+    } else {
+      window.alert('Failed ' + status)
+    }
+  });
+};
+
 
 const Map = props => {
   let activityData = props.activities;
@@ -17,6 +39,10 @@ const Map = props => {
   if (initialCenter.length === 0) {
     return "NO MAP FOUND";
   } else {
+
+    // const directionService = new window.google.maps.DirectionsService();    // <=== NEED API KEY UPGRADE
+    // const directionsDisplay = new window.google.maps.DirectionsRenderer();  // <=== NEED API KEY UPGRADE
+
     return (
       <GoogleMap
         defaultZoom={11}
@@ -34,14 +60,15 @@ const Map = props => {
           }
           return (
             <Marker
-              key={activity.id}
-              animation={animation}
-              position={{
-                lat: Number(activity.lat),
-                lng: Number(activity.long)
-              }}
-              onClick={() => {
-                setSelectedActivity(activity);
+            key={activity.id}
+            animation={animation}
+            position={{
+              lat: Number(activity.lat),
+              lng: Number(activity.long)
+            }}
+            onClick={() => {
+              setSelectedActivity(activity);
+              // onChangeHandler(directionService, directionsDisplay, activity)  // <=== NEED MODIFICATION AND API KEY UPGRADE
               }}
             />
           );
@@ -78,11 +105,11 @@ const Map = props => {
           >
             <div>
               <h5>{selectedActivity.name}</h5>
-              {/* <p>{selectedActivity.destination_id}</p> */}
               <img
                 height="80px"
                 width="100px"
                 src={selectedActivity.image_url}
+                alt='activity_detail'
               />
               <p>🌟🌟🌟🌟🌟</p>
               <p style={{ wordWrap: "break-word", maxWidth: "100px" }}>
